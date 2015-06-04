@@ -13,10 +13,11 @@
             android:textSize="40dp"
             android:layout_gravity="center_vertical"
             android:textColor="#fff"
-            android:textStyle="bold"
             android:layout_marginLeft="80dp"
             android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:textStyle="normal"
+            android:gravity="center_horizontal" />
 
 
 
