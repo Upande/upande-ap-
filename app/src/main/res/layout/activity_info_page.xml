@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.faith.upandeapp.InfoPage"
-    android:background="#3DB2AB">
+    android:background="@drawable/loginbg">
 
     <TextView android:text="@string/hello_world"
         android:layout_width="wrap_content"
