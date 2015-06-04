@@ -1,38 +1,43 @@
 package com.example.faith.upandeapp;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 
 public class FormPage extends ActionBarActivity {
+    TextView htextview[] = new TextView[10];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form_page);
-    }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_form_page, menu);
-        return true;
-    }
+        htextview[0] = (TextView) findViewById(R.id.text1);
+        htextview[1] = (TextView) findViewById(R.id.text2);
+        htextview[2] = (TextView) findViewById(R.id.text3);
+        htextview[3] = (TextView) findViewById(R.id.text4);
+        htextview[4] = (TextView) findViewById(R.id.text5);
+        htextview[5] = (TextView) findViewById(R.id.text6);
+        htextview[6] = (TextView) findViewById(R.id.text7);
+        htextview[7] = (TextView) findViewById(R.id.text8);
+        htextview[8] = (TextView) findViewById(R.id.text9);
+        htextview[9] = (TextView) findViewById(R.id.text10);
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        for (int i = 0; i < 6; i++) {
+            htextview[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(FormPage.this, EntryPage.class));
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+                }
+            });
+
         }
 
-        return super.onOptionsItemSelected(item);
     }
 }
