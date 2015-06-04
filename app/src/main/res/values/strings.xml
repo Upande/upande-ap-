@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Upandeapp</string>
 
-    <string name="hello_world">Hello world!</string>
+    <string name="hello_world">Access submitted data from your published forms on Ona</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_splash_screen">SplashScreen</string>
     <string name="title_activity_info_page">InfoPage</string>
