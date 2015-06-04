@@ -6,20 +6,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class SplashScreen extends ActionBarActivity {
+public class FormPage extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash_screen);
-
-
+        setContentView(R.layout.activity_form_page);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_splash_screen, menu);
+        getMenuInflater().inflate(R.menu.menu_form_page, menu);
         return true;
     }
 

@@ -25,6 +25,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".InfoPage"
+            android:label="@string/title_activity_info_page" >
+        </activity>
+        <activity
+            android:name=".LogInPage"
+            android:label="@string/title_activity_log_in_page" >
+        </activity>
+        <activity
+            android:name=".FormPage"
+            android:label="@string/title_activity_form_page" >
+        </activity>
+        <activity
+            android:name=".EntryPage"
+            android:label="@string/title_activity_entry_page" >
+        </activity>
     </application>
 
 </manifest>
