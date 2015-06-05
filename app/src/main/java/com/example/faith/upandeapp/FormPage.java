@@ -1,5 +1,6 @@
 package com.example.faith.upandeapp;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -9,7 +10,7 @@ import android.view.View;
 import android.widget.TextView;
 
 
-public class FormPage extends ActionBarActivity {
+public class FormPage extends Activity {
     TextView htextview[] = new TextView[10];
 
     @Override
@@ -28,7 +29,7 @@ public class FormPage extends ActionBarActivity {
         htextview[8] = (TextView) findViewById(R.id.text9);
         htextview[9] = (TextView) findViewById(R.id.text10);
 
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 10; i++) {
             htextview[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

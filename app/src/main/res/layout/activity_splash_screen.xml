@@ -9,8 +9,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ONABROWSE"
-            android:textSize="40dp"
+            android:text="Ona browse"
+            android:textSize="35dp"
             android:layout_gravity="center_vertical"
             android:textColor="#fff"
             android:layout_marginLeft="80dp"
