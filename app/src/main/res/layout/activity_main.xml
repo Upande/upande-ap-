@@ -78,7 +78,7 @@
             android:id="@+id/llayout1b">
             <TextView
                 android:layout_weight="50"
-                android:text="Number of submissions: 30"
+                android:text="Submissions: 30"
                 android:layout_height="match_parent"
                 android:textColor="#ff000000"
                 android:layout_width="0dp"
@@ -130,7 +130,7 @@
             android:id="@+id/llayout3b">
             <TextView
                 android:layout_weight="50"
-                android:text="Number of submissions: 30"
+                android:text="Submissions: 30"
                 android:layout_height="match_parent"
                 android:textColor="#ff000000"
                 android:layout_width="0dp"
@@ -182,7 +182,7 @@
             android:id="@+id/llayout4b">
             <TextView
                 android:layout_weight="50"
-                android:text="Number of submissions: 30"
+                android:text="Submissions: 30"
                 android:layout_height="match_parent"
                 android:textColor="#ff000000"
                 android:layout_width="0dp"
@@ -233,7 +233,7 @@
             android:id="@+id/llayout5b">
             <TextView
                 android:layout_weight="50"
-                android:text="Number of submissions: 30"
+                android:text="Submissions: 30"
                 android:layout_height="match_parent"
                 android:textColor="#ff000000"
                 android:layout_width="0dp"
@@ -285,7 +285,7 @@
             android:id="@+id/lllayout1b">
             <TextView
                 android:layout_weight="50"
-                android:text="Number of submissions: 30"
+                android:text="Submissions: 30"
                 android:layout_height="match_parent"
                 android:textColor="#ff000000"
                 android:layout_width="0dp"
@@ -337,7 +337,7 @@
             android:id="@+id/lllayout3b">
             <TextView
                 android:layout_weight="50"
-                android:text="Number of submissions: 30"
+                android:text="Submissions: 30"
                 android:layout_height="match_parent"
                 android:textColor="#ff000000"
                 android:layout_width="0dp"
@@ -389,7 +389,7 @@
             android:id="@+id/lllayout4b">
             <TextView
                 android:layout_weight="50"
-                android:text="Number of submissions: 30"
+                android:text="Submissions: 30"
                 android:layout_height="match_parent"
                 android:textColor="#ff000000"
                 android:layout_width="0dp"
@@ -440,7 +440,7 @@
             android:id="@+id/lllayout5b">
             <TextView
                 android:layout_weight="50"
-                android:text="Number of submissions: 30"
+                android:text="Submissions: 30"
                 android:layout_height="match_parent"
                 android:textColor="#ff000000"
                 android:layout_width="0dp"
@@ -492,7 +492,7 @@
                     android:id="@+id/lllayout6b">
                     <TextView
                         android:layout_weight="50"
-                        android:text="Number of submissions: 30"
+                        android:text="Submissions: 30"
                         android:layout_height="match_parent"
                         android:textColor="#ff000000"
                         android:layout_width="0dp"
