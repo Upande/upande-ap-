@@ -2,33 +2,60 @@ package com.example.faith.upandeapp;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.preference.PreferenceActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.TextView;
+
+import com.loopj.android.http.JsonHttpResponseHandler;
+
+import org.apache.http.Header;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 
 public class MainActivity extends Activity {
+    OnaApiClient client;
+    private ListView lvForms;
+    private FormsAdapter adapterForms;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        runNextTask();
+        setContentView(R.layout.mylistview);
+        lvForms = (ListView) findViewById(R.id.lvForms);
+        ArrayList<MyForm> aForms = new ArrayList<MyForm>();
+        adapterForms = new FormsAdapter(this, aForms);
+        lvForms.setAdapter(adapterForms);
     }
 
-    public void runNextTask(){
+    private void fetchForms() {
+        client = new OnaApiClient("justus","12345678");
+        client.getUserForms(new JsonHttpResponseHandler() {
 
-        //set up for model selection
-        TextView modelTextview = (TextView)findViewById(R.id.model);
-        modelTextview.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getBaseContext(),FormPage.class);
-                startActivity(intent);
+            public void onSuccess(int statusCode, Header[] headers, JSONObject responseBody) {
+                JSONArray items = null;
+                try {
+                    // Get forms json array
+                    items = responseBody.getJSONArray("forms");
+                    // Parse json array into array of model objects
+                    ArrayList<MyForm> forms = MyForm.fromJson(items);
+                    // Load model objects into the adapter
+                    for (MyForm form : forms) {
+                        adapterForms.add(form); // add form through the adapter
+                    }
+                    adapterForms.notifyDataSetChanged();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
