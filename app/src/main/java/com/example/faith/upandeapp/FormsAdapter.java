@@ -16,8 +16,8 @@ import java.util.ArrayList;
  * Created by justus on 6/6/15.
  */
 public class FormsAdapter extends ArrayAdapter<MyForm> {
-    public FormsAdapter(Context context, ArrayList<MyForm> aforms) {
-        super(context, 0, aforms);
+    public FormsAdapter(Context context, ArrayList<MyForm> forms) {
+        super(context, 0, forms);
     }
 
     @Override

@@ -31,14 +31,16 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mylistview);
         lvForms = (ListView) findViewById(R.id.lvForms);
-        ArrayList<MyForm> aForms = new ArrayList<MyForm>();
-        adapterForms = new FormsAdapter(this, aForms);
+        ArrayList<MyForm> Forms = new ArrayList<MyForm>();
+        adapterForms = new FormsAdapter(this, Forms);
         lvForms.setAdapter(adapterForms);
+
+        fetchForms();
     }
 
     private void fetchForms() {
         client = new OnaApiClient("justus","12345678");
-        client.getUserForms(new JsonHttpResponseHandler() {
+        client.getMyForms(new JsonHttpResponseHandler() {
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject responseBody) {

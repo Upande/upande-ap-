@@ -26,23 +26,7 @@ public class MyForm {
         return formUrl;
     }
 
-    public static MyForm fromJson(JSONObject jsonObject) {
-        MyForm b = new MyForm();
-        try {
-            // Deserialize json into object fields
-            b.title = jsonObject.getString("title");
-            b.description = jsonObject.getString("description");
-            b.formUrl = jsonObject.getString("formurl");
 
-
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-            return null;
-        }
-        // Return new object
-        return b;
-    }
 
     public static ArrayList<MyForm> fromJson(JSONArray jsonArray) {
         ArrayList<MyForm> forms = new ArrayList<MyForm>(jsonArray.length());
@@ -64,5 +48,23 @@ public class MyForm {
         }
 
         return forms;
+    }
+
+    public static MyForm fromJson(JSONObject jsonObject) {
+        MyForm form = new MyForm();
+        try {
+            // Deserialize json into object fields
+            form.title = jsonObject.getString("title");
+            form.description = jsonObject.getString("description");
+            form.formUrl = jsonObject.getString("formurl");
+
+
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+        // Return new object
+        return form;
     }
 }
