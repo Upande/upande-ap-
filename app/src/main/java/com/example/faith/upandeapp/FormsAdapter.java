@@ -32,11 +32,11 @@ public class FormsAdapter extends ArrayAdapter<MyForm> {
         // Lookup views within item layout
         TextView formtitle = (TextView) convertView.findViewById(R.id.formtitle);
         TextView description = (TextView) convertView.findViewById(R.id.description);
-        TextView formurl = (TextView) convertView.findViewById(R.id.formurl);
+        //TextView formurl = (TextView) convertView.findViewById(R.id.formurl);
        // Populate the data into the template view using the data object
         formtitle.setText(form.getTitle());
-        description.setText(form.getDescription());
-        formurl.setText(form.getFormUrl());
+        description.setText("Description: "+form.getDescription());
+        //formurl.setText(form.getFormUrl());
 
         // Return the completed view to render on screen
         return convertView;

@@ -13,17 +13,16 @@ import org.apache.http.auth.AuthScope;
  */
 public class OnaApiClient {
 
-    private String username = "justus";
-    private String password = "12345678";
+    private String username;
+    private String password;
 
     private final String API_BASE_URL = "http://@ona.io/api/v1/";
-    public String url;
+
 
     private AsyncHttpClient client;
 
     public OnaApiClient(String username, String password){
         this.client = new AsyncHttpClient();
-
         this.username = username;
         this.password = password;
 
@@ -36,14 +35,13 @@ public class OnaApiClient {
     }
 
     public void getMyForms(JsonHttpResponseHandler handler){
+
         String url = getApiUrl("data?format=json");
-        Log.d("STRING",url);
 
-        RequestParams params = new RequestParams("username", username);
+        client.setBasicAuth(username,password);
+        client.get(url, new RequestParams(username,password), handler);
 
-        client.get(url, params, handler);
 
-        Log.d("STRING", url.toUpperCase());
 
     }
 }

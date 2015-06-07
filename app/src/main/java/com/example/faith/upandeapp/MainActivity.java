@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.preference.PreferenceActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,6 +19,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
 
@@ -42,22 +44,40 @@ public class MainActivity extends Activity {
         client = new OnaApiClient("justus","12345678");
         client.getMyForms(new JsonHttpResponseHandler() {
 
+            // this is for debugging purpose only
             @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject responseBody) {
-                JSONArray items = null;
+            protected Object parseResponse(byte[] responseBody) throws JSONException {
+                String string = null;
                 try {
-                    // Get forms json array
-                    items = responseBody.getJSONArray("forms");
+                    string = new String(responseBody, "UTF-8");
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+                Log.d("STRING", string);
+                return super.parseResponse(responseBody);
+
+            }
+
+            // where the magic of fetching forms details happen
+
+
+
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                JSONArray items = response;
+                Log.d("String", "Data is coming in");
+
                     // Parse json array into array of model objects
                     ArrayList<MyForm> forms = MyForm.fromJson(items);
+
+
                     // Load model objects into the adapter
                     for (MyForm form : forms) {
                         adapterForms.add(form); // add form through the adapter
                     }
                     adapterForms.notifyDataSetChanged();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+
             }
         });
     }

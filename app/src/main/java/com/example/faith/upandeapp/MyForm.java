@@ -56,7 +56,7 @@ public class MyForm {
             // Deserialize json into object fields
             form.title = jsonObject.getString("title");
             form.description = jsonObject.getString("description");
-            form.formUrl = jsonObject.getString("formurl");
+            form.formUrl = jsonObject.getString("url");
 
 
 
