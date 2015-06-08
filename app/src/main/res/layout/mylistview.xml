@@ -4,11 +4,7 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/scrollView"
-        >
+
 
     <ListView
         android:id="@+id/lvForms"
@@ -17,11 +13,11 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-
+        android:fillViewport="true"
         android:layout_alignParentTop="true" >
 
     </ListView>
 
-    </ScrollView>
+
 
 </RelativeLayout>
