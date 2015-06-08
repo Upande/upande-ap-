@@ -4,12 +4,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by justus on 6/6/15.
  */
-public class MyForm {
+public class MyForm implements Serializable {
+    private static final long serialVersionUID = -8959832007991513854L; // I need to pass on some data to formPage class
     private String title;
     private String description;
     private String formUrl;
