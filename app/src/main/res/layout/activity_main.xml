@@ -5,36 +5,13 @@
     tools:context=".MainActivity"
     android:background="#fffaf2ff">
 
-     <LinearLayout
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:paddingRight="5dp"
-         android:paddingLeft="5dp"
-         android:background="#3DB2AB"
-         android:id="@+id/llayout1"
-         android:orientation="horizontal">
-           <TextView
-               android:layout_weight="70"
-               android:text="Published Forms"
-               android:textSize="27sp"
-               android:layout_height="match_parent"
-               android:layout_width="0dp" />
 
-         <TextView
-             android:layout_weight="30"
-             android:text="Justus"
-             android:textSize="25sp"
-             android:layout_height="match_parent"
-             android:layout_width="0dp" />
-
-
-     </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/scrollView"
-        android:layout_below="@+id/llayout1">
+       >
 
 
         <RelativeLayout
@@ -42,475 +19,67 @@
             android:layout_height="wrap_content"
             android:paddingRight="5dp"
             android:paddingLeft="5dp"
+            android:background="@drawable/border"
             >
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:layout_marginTop="6dp"
-
-        android:id="@+id/llayout2"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:id="@+id/llayout1a">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/model"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:text="Tutorials"
-                android:textColor="#ff000000"
-                android:clickable="true" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:id="@+id/llayout1b">
-            <TextView
-                android:layout_weight="50"
-                android:text="Submissions: 30"
-                android:layout_height="match_parent"
-                android:textColor="#ff000000"
-                android:layout_width="0dp"
-                android:paddingBottom="5dp"
-                android:background="@drawable/border"/>
-
-            <TextView
-                android:layout_weight="50"
-                android:text="Created on 30th June 2015"
-                android:layout_height="match_parent"
-                android:textColor="#ff000000"
-                android:paddingBottom="5dp"
-                android:layout_width="0dp"
-                android:background="@drawable/border"/>
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/llayout2"
-        android:layout_marginTop="6dp"
-
-        android:id="@+id/llayout3"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:id="@+id/llayout3a">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:text="Climate change in Africa"
-                android:textColor="#ff000000" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:id="@+id/llayout3b">
-            <TextView
-                android:layout_weight="50"
-                android:text="Submissions: 30"
-                android:layout_height="match_parent"
-                android:textColor="#ff000000"
-                android:layout_width="0dp"
-                android:paddingBottom="5dp"
-                android:background="@drawable/border"/>
-
-            <TextView
-                android:layout_weight="50"
-                android:text="Created on 30th June 2015"
-                android:layout_height="match_parent"
-                android:textColor="#ff000000"
-                android:paddingBottom="5dp"
-                android:layout_width="0dp"
-                android:background="@drawable/border"/>
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/llayout3"
-        android:layout_marginTop="6dp"
-
-        android:id="@+id/llayout4"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:id="@+id/llayout4a">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:text="Using aluminium foil in making cars"
-                android:textColor="#ff000000" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:id="@+id/llayout4b">
-            <TextView
-                android:layout_weight="50"
-                android:text="Submissions: 30"
-                android:layout_height="match_parent"
-                android:textColor="#ff000000"
-                android:layout_width="0dp"
-                android:paddingBottom="5dp"
-                android:background="@drawable/border"/>
-
-            <TextView
-                android:layout_weight="50"
-                android:text="Created on 30th June 2015"
-                android:layout_height="match_parent"
-                android:textColor="#ff000000"
-                android:paddingBottom="5dp"
-                android:layout_width="0dp"
-                android:background="@drawable/border"/>
-
-        </LinearLayout>
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/llayout4"
-        android:layout_marginTop="6dp"
-
-        android:id="@+id/llayout5"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:id="@+id/llayout5a">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:text="Word is out"
-                android:textColor="#ff000000" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:id="@+id/llayout5b">
-            <TextView
-                android:layout_weight="50"
-                android:text="Submissions: 30"
-                android:layout_height="match_parent"
-                android:textColor="#ff000000"
-                android:layout_width="0dp"
-                android:paddingBottom="5dp"
-                android:background="@drawable/border"/>
-
-            <TextView
-                android:layout_weight="50"
-                android:text="Created on 30th June 2015"
-                android:layout_height="match_parent"
-                android:textColor="#ff000000"
-                android:paddingBottom="5dp"
-                android:layout_width="0dp"
-                android:background="@drawable/border"/>
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/llayout5"
-        android:layout_marginTop="6dp"
-
-        android:id="@+id/lllayout2"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:id="@+id/lllayout1a">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:text="Tutorials"
-                android:textColor="#ff000000" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:id="@+id/lllayout1b">
-            <TextView
-                android:layout_weight="50"
-                android:text="Submissions: 30"
-                android:layout_height="match_parent"
-                android:textColor="#ff000000"
-                android:layout_width="0dp"
-                android:paddingBottom="5dp"
-                android:background="@drawable/border"/>
-
-            <TextView
-                android:layout_weight="50"
-                android:text="Created on 30th June 2015"
-                android:layout_height="match_parent"
-                android:textColor="#ff000000"
-                android:paddingBottom="5dp"
-                android:layout_width="0dp"
-                android:background="@drawable/border"/>
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/lllayout2"
-        android:layout_marginTop="6dp"
-
-        android:id="@+id/lllayout3"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:id="@+id/lllayout3a">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:text="Climate change in Africa"
-                android:textColor="#ff000000" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:id="@+id/lllayout3b">
-            <TextView
-                android:layout_weight="50"
-                android:text="Submissions: 30"
-                android:layout_height="match_parent"
-                android:textColor="#ff000000"
-                android:layout_width="0dp"
-                android:paddingBottom="5dp"
-                android:background="@drawable/border"/>
-
-            <TextView
-                android:layout_weight="50"
-                android:text="Created on 30th June 2015"
-                android:layout_height="match_parent"
-                android:textColor="#ff000000"
-                android:paddingBottom="5dp"
-                android:layout_width="0dp"
-                android:background="@drawable/border"/>
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/lllayout3"
-        android:layout_marginTop="6dp"
-
-        android:id="@+id/lllayout4"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:id="@+id/lllayout4a">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:text="Using aluminium foil in making cars"
-                android:textColor="#ff000000" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:id="@+id/lllayout4b">
-            <TextView
-                android:layout_weight="50"
-                android:text="Submissions: 30"
-                android:layout_height="match_parent"
-                android:textColor="#ff000000"
-                android:layout_width="0dp"
-                android:paddingBottom="5dp"
-                android:background="@drawable/border"/>
-
-            <TextView
-                android:layout_weight="50"
-                android:text="Created on 30th June 2015"
-                android:layout_height="match_parent"
-                android:textColor="#ff000000"
-                android:paddingBottom="5dp"
-                android:layout_width="0dp"
-                android:background="@drawable/border"/>
-
-        </LinearLayout>
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/lllayout4"
-        android:layout_marginTop="6dp"
-
-        android:id="@+id/lllayout5"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:id="@+id/lllayout5a">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:text="Word is out"
-                android:textColor="#ff000000" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:id="@+id/lllayout5b">
-            <TextView
-                android:layout_weight="50"
-                android:text="Submissions: 30"
-                android:layout_height="match_parent"
-                android:textColor="#ff000000"
-                android:layout_width="0dp"
-                android:paddingBottom="5dp"
-                android:background="@drawable/border"/>
-
-            <TextView
-                android:layout_weight="50"
-                android:text="Created on 30th June 2015"
-                android:layout_height="match_parent"
-                android:textColor="#ff000000"
-                android:paddingBottom="5dp"
-                android:layout_width="0dp"
-                android:background="@drawable/border"/>
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/lllayout5"
-                android:layout_marginTop="6dp"
-
-                android:id="@+id/lllayout6"
-                android:orientation="vertical">
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:id="@+id/lllayout6a">
 
-                    <TextView
+                    android:layout_marginTop="6dp"
+
+                    android:id="@+id/llayout2"
+                    android:orientation="vertical">
+
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        android:text="Word is out"
-                        android:textColor="#ff000000" />
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:id="@+id/llayout1a">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/formtitle"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:text="Tutorials"
+                            android:textColor="#ff000000"
+                            android:clickable="true" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:id="@+id/llayout1b">
+                        <TextView
+                            android:layout_weight="100"
+                            android:text="Submissions: 30"
+                            android:id="@+id/description"
+                            android:layout_height="match_parent"
+                            android:textColor="#ff000000"
+                            android:layout_width="0dp"
+                            android:paddingBottom="5dp"
+                            android:background="@drawable/border" />
+
+                        <!--<TextView-->
+                            <!--android:layout_weight="50"-->
+                            <!--android:text="formurl"-->
+                            <!--android:id="@+id/formurl"-->
+                            <!--android:layout_height="match_parent"-->
+                            <!--android:textColor="#ff000000"-->
+                            <!--android:paddingBottom="5dp"-->
+                            <!--android:layout_width="0dp"-->
+                            <!--android:background="@drawable/border"/>-->
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:id="@+id/lllayout6b">
-                    <TextView
-                        android:layout_weight="50"
-                        android:text="Submissions: 30"
-                        android:layout_height="match_parent"
-                        android:textColor="#ff000000"
-                        android:layout_width="0dp"
-                        android:paddingBottom="5dp"
-                        android:background="@drawable/border"/>
 
-                    <TextView
-                        android:layout_weight="50"
-                        android:text="Created on 30th June 2015"
-                        android:layout_height="match_parent"
-                        android:textColor="#ff000000"
-                        android:paddingBottom="5dp"
-                        android:layout_width="0dp"
-                        android:background="@drawable/border"/>
 
-                </LinearLayout>
-
-            </LinearLayout>
         </RelativeLayout>
     </ScrollView>
 </RelativeLayout>
