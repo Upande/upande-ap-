@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:descendantFocusability="blocksDescendants"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView"
+        >
 
     <ListView
         android:id="@+id/lvForms"
@@ -10,9 +17,11 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:descendantFocusability="blocksDescendants"
+
         android:layout_alignParentTop="true" >
 
     </ListView>
+
+    </ScrollView>
 
 </RelativeLayout>

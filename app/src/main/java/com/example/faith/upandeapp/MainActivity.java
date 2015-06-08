@@ -15,7 +15,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import android.widget.AdapterView.OnItemClickListener;
+//import android.widget.AdapterView.OnItemClickListener;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
 
@@ -86,8 +86,6 @@ public class MainActivity extends Activity {
                 }
                 adapterForms.notifyDataSetChanged();
 
-
-
             }
         });
     } // end of fetchforms method
@@ -95,17 +93,17 @@ public class MainActivity extends Activity {
     // we need to add some onclick listener to the forms selected
 
     public void setupFormSelectedListener() {
-        Log.d("STRANGE","We are soo in..");
+
         lvForms.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View item, int position, long rowId) {
 
-                Log.d("STRANGE","and in work");
 
-                Toast.makeText(getBaseContext(),"Does it work?",Toast.LENGTH_LONG).show();
+
                 // Launch the detail view passing form as an extra
                 Intent i = new Intent(MainActivity.this, FormPage.class);
                 i.putExtra(FORM_DETAIL_KEY, adapterForms.getItem(position));
+                Toast.makeText(getBaseContext(),adapterForms.getItem(position).getTitle(),Toast.LENGTH_LONG).show();
                 startActivity(i);
             }
         });
