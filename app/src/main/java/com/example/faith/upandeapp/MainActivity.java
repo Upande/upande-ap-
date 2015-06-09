@@ -101,24 +101,30 @@ public class MainActivity extends Activity {
             // incase of failure, it could be coz of poor network, or wrong cresentials, for now, I don't care
 
 
-//            @Override
-//            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-//                //super.onFailure(statusCode, headers, throwable, errorResponse);
-//
-//                alert.showAlertDialog(MainActivity.this, "Login failed..", "Username/Password is incorrect", false);
-//            }
-//
-//            @Override
-//            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONArray errorResponse) {
-//                //super.onFailure(statusCode, headers, throwable, errorResponse);
-//                alert.showAlertDialog(MainActivity.this, "Login failed..", "Username/Password is incorrect", false);
-//            }
-//
-//            @Override
-//            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-//                //super.onFailure(statusCode, headers, responseString, throwable);
-//                alert.showAlertDialog(MainActivity.this, "Login failed..", "Username/Password is incorrect", false);
-//            }
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                //super.onFailure(statusCode, headers, throwable, errorResponse);
+
+                Toast.makeText(getApplicationContext(),"Username/Password is incorrect",Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getBaseContext(),LogInPage.class);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONArray errorResponse) {
+                //super.onFailure(statusCode, headers, throwable, errorResponse);
+                alert.showAlertDialog(MainActivity.this, "Login failed..", "Username/Password is incorrect", false);
+                Intent intent = new Intent(getBaseContext(),LogInPage.class);
+                //startActivity(intent);
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                //super.onFailure(statusCode, headers, responseString, throwable);
+                alert.showAlertDialog(MainActivity.this, "Login failed..", "Username/Password is incorrect", false);
+                Intent intent = new Intent(getBaseContext(),LogInPage.class);
+                //startActivity(intent);
+            }
         });
     } // end of fetchforms method
 
