@@ -33,11 +33,20 @@ public class MainActivity extends Activity {
     OnaApiClient client;
     private ListView lvForms;
     private FormsAdapter adapterForms;
+    AlertDialogManager alert = new AlertDialogManager();
+
+    String username;
+    String password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mylistview);
+
+       username = getIntent().getStringExtra("username");
+       password = getIntent().getStringExtra("password");
+
+
         lvForms = (ListView) findViewById(R.id.lvForms);
         ArrayList<MyForm> Forms = new ArrayList<MyForm>();
         adapterForms = new FormsAdapter(this, Forms);
@@ -51,7 +60,7 @@ public class MainActivity extends Activity {
     }
 
     private void fetchForms() {
-        client = new OnaApiClient("justus", "12345678");
+        client = new OnaApiClient(username,password);
         client.getMyForms(new JsonHttpResponseHandler() {
 
             // this is for debugging purpose only
@@ -68,8 +77,9 @@ public class MainActivity extends Activity {
 
             }
 
-            // where the magic of fetching forms details happen
 
+
+            // where the magic of fetching forms details happen
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
@@ -87,6 +97,28 @@ public class MainActivity extends Activity {
                 adapterForms.notifyDataSetChanged();
 
             }
+
+            // incase of failure, it could be coz of poor network, or wrong cresentials, for now, I don't care
+
+
+//            @Override
+//            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+//                //super.onFailure(statusCode, headers, throwable, errorResponse);
+//
+//                alert.showAlertDialog(MainActivity.this, "Login failed..", "Username/Password is incorrect", false);
+//            }
+//
+//            @Override
+//            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONArray errorResponse) {
+//                //super.onFailure(statusCode, headers, throwable, errorResponse);
+//                alert.showAlertDialog(MainActivity.this, "Login failed..", "Username/Password is incorrect", false);
+//            }
+//
+//            @Override
+//            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+//                //super.onFailure(statusCode, headers, responseString, throwable);
+//                alert.showAlertDialog(MainActivity.this, "Login failed..", "Username/Password is incorrect", false);
+//            }
         });
     } // end of fetchforms method
 

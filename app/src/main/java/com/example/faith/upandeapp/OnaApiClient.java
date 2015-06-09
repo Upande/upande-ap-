@@ -38,7 +38,7 @@ public class OnaApiClient {
 
         String url = getApiUrl("data?format=json");
 
-        //client.setBasicAuth(username,password);
+        client.setBasicAuth(username,password);
         client.get(url, new RequestParams(username,password), handler);
 
 
