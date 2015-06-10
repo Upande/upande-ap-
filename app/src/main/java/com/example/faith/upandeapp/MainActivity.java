@@ -33,6 +33,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mylistview);
         lvForms = (ListView) findViewById(R.id.lvForms);
+
         ArrayList<MyForm> Forms = new ArrayList<MyForm>();
         adapterForms = new FormsAdapter(this, Forms);
         lvForms.setAdapter(adapterForms);
@@ -41,7 +42,7 @@ public class MainActivity extends Activity {
     }
 
     private void fetchForms() {
-        client = new OnaApiClient("justus","12345678");
+        client = new OnaApiClient("faith","123568");
         client.getMyForms(new JsonHttpResponseHandler() {
 
             // this is for debugging purpose only

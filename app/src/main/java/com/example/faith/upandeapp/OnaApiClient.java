@@ -44,4 +44,14 @@ public class OnaApiClient {
 
 
     }
+    public void getdetails(JsonHttpResponseHandler handler){
+
+        String url = getApiUrl("55395");
+
+        client.setBasicAuth(username,password);
+        client.get(url, new RequestParams(username,password), handler);
+
+
+
+    }
 }
