@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:descendantFocusability="blocksDescendants"
     android:layout_width="match_parent" android:layout_height="match_parent">
+
+
 
 
     <ListView
@@ -10,9 +13,11 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-
+        android:fillViewport="true"
         android:layout_alignParentTop="true" >
 
     </ListView>
+
+
 
 </RelativeLayout>

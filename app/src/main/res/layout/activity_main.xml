@@ -2,16 +2,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants"
     tools:context=".MainActivity"
     android:background="#fffaf2ff">
 
 
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/scrollView"
-       >
 
 
         <RelativeLayout
@@ -45,7 +41,7 @@
                             android:textStyle="bold"
                             android:text="Tutorials"
                             android:textColor="#ff000000"
-                            android:clickable="true" />
+                            android:clickable="false" />
 
                     </LinearLayout>
 
@@ -81,5 +77,5 @@
 
 
         </RelativeLayout>
-    </ScrollView>
+
 </RelativeLayout>
