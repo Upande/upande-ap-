@@ -61,11 +61,9 @@ public class MainActivity extends Activity {
     }
 
     private void fetchForms() {
-<<<<<<< HEAD
-        client = new OnaApiClient("faith","123568");
-=======
+
         client = new OnaApiClient(username,password);
->>>>>>> 3d63e12db1539a9ed403599c8b0f69c27c543cfa
+
         client.getMyForms(new JsonHttpResponseHandler() {
 
             // this is for debugging purpose only
@@ -146,6 +144,7 @@ public class MainActivity extends Activity {
                 // Launch the detail view passing form as an extra
                 Intent i = new Intent(MainActivity.this, FormPage.class);
                 i.putExtra(FORM_DETAIL_KEY, adapterForms.getItem(position));
+                i.putExtra("formUrl",adapterForms.getItem(position).getFormUrl());
                 Toast.makeText(getBaseContext(),adapterForms.getItem(position).getTitle(),Toast.LENGTH_LONG).show();
                 startActivity(i);
             }
