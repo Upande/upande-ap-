@@ -37,6 +37,7 @@ public class MainActivity extends Activity {
 
     String username;
     String password;
+    String formUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +63,7 @@ public class MainActivity extends Activity {
 
     private void fetchForms() {
 
-        client = new OnaApiClient(username,password);
+        client = new OnaApiClient(username,password,formUrl);
 
         client.getMyForms(new JsonHttpResponseHandler() {
 
@@ -145,6 +146,8 @@ public class MainActivity extends Activity {
                 Intent i = new Intent(MainActivity.this, FormPage.class);
                 i.putExtra(FORM_DETAIL_KEY, adapterForms.getItem(position));
                 i.putExtra("formUrl",adapterForms.getItem(position).getFormUrl());
+                i.putExtra("username",username);
+                i.putExtra("password",password);
                 Toast.makeText(getBaseContext(),adapterForms.getItem(position).getTitle(),Toast.LENGTH_LONG).show();
                 startActivity(i);
             }

@@ -24,17 +24,21 @@ public class OnaApiClient extends Activity{
 
     private AsyncHttpClient client;
 
-    public OnaApiClient(String username, String password){
+
+    public OnaApiClient(String username, String password, String formUrl){
         this.client = new AsyncHttpClient();
+
         this.username = username;
         this.password = password;
+        this.formUrl = formUrl;
 
         Log.d("STRING", "created MACLIENTELES");
 
     }
 
     private String getApiUrl(String relativeUrl){return  API_BASE_URL + relativeUrl; }
-    private String getFomUrl(String formUrl){return  formUrl;}
+    private String getFormUrl(String formUrl){return  formUrl; }
+
 
     public void getMyForms(JsonHttpResponseHandler handler){
 
@@ -48,12 +52,12 @@ public class OnaApiClient extends Activity{
     }
      public void getFormDetails(JsonHttpResponseHandler handler){
 
-        /* formUrl=getIntent().getStringExtra("formUrl");
-*/
-         String formdetailsurl = "https://ona.io/api/v1/data/55401";
 
 
-        client.get(formdetailsurl, new RequestParams(username, password), handler);
+         String formdetailsurl = getFormUrl(formUrl);
+
+         client.setBasicAuth(username, password);
+         client.get(formdetailsurl, new RequestParams(username, password), handler);
 
          Log.d("STRING",formdetailsurl);
 
