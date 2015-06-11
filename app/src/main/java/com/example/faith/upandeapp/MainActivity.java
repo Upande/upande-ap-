@@ -143,7 +143,7 @@ public class MainActivity extends Activity {
 
 
                 // Launch the detail view passing form as an extra
-                Intent i = new Intent(MainActivity.this, FormPage.class);
+                Intent i = new Intent(MainActivity.this, TablePage.class);
                 i.putExtra(FORM_DETAIL_KEY, adapterForms.getItem(position));
                 i.putExtra("formUrl",adapterForms.getItem(position).getFormUrl());
                 i.putExtra("username",username);
