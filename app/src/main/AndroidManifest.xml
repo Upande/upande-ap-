@@ -37,7 +37,7 @@
             android:label="@string/title_activity_log_in_page" >
         </activity>
         <activity
-            android:name=".FormPage"
+            android:name=".TablePage"
             android:label="@string/title_activity_form_page" >
         </activity>
         <activity

@@ -6,6 +6,6 @@
     <string name="title_activity_splash_screen">SplashScreen</string>
     <string name="title_activity_info_page">InfoPage</string>
     <string name="title_activity_log_in_page">LogInPage</string>
-    <string name="title_activity_form_page">FormPage</string>
+    <string name="title_activity_form_page">TablePage</string>
     <string name="title_activity_entry_page">EntryPage</string>
 </resources>

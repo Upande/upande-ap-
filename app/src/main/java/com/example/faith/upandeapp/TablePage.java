@@ -29,7 +29,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
 
-public class FormPage extends Activity {
+public class TablePage extends Activity {
     TextView htextview[] = new TextView[10];
 
     OnaApiClient client1;
@@ -57,7 +57,6 @@ public class FormPage extends Activity {
                 "COLUMN5", "COLUMN6","ROW1", "ROW2", "Row3", "Row4", "Row 5", "Row 6", "Row 7"  };
         int rl=row.length; int cl=column.length;
 
-        Log.d("--", "R-Lenght--"+rl+"   "+"C-Lenght--"+cl);
 
         ScrollView sv = new ScrollView(this);
         TableLayout tableLayout = createTableLayout(row, column,rl, cl);
@@ -68,10 +67,10 @@ public class FormPage extends Activity {
         setContentView(sv);
 
 
-        fetchForms();
+        fetchFormsDetails();
     }
 
-     private void fetchForms() {
+     private void fetchFormsDetails() {
 
         client1 = new OnaApiClient(username,password,formUrl);
 
@@ -92,28 +91,22 @@ public class FormPage extends Activity {
             }
 
 
-            // where the magic of fetching forms details happen
+            //where the magic of fetching forms details happen
 
-//            @Override
-//            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
-//                JSONArray items = response;
-//                Log.d("String", "Data is coming in");
-//
-//                // Parse json array into array of model objects
-//                ArrayList<MyForm> forms = MyForm.fromJson(items);
-//
-//
-//                // Load model objects into the adapter
-//                for (MyForm form : forms) {
-//                    adapterForms.add(form); // add form through the adapter
-//                }
-//                adapterForms.notifyDataSetChanged();
-//
-//            }
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                JSONArray items = response;
+                Log.d("STRING", "I have the array of each individual data now");
+
+                Log.d("STRING", items.toString());
+            }
 
 
         });
     } // end of fetchformsdetails method
+
+    // where the magic of fetching forms details happen
+
 
 
 
@@ -139,7 +132,7 @@ public class FormPage extends Activity {
         // get cell from row with columnIndex
         TextView textView = (TextView)tableRow.getChildAt(columnIndex);
 
-       // textView.setText("Hello");
+
     }
 
     private TableLayout createTableLayout(String [] rv, String [] cv,int rowCount, int columnCount) {
@@ -165,29 +158,9 @@ public class FormPage extends Activity {
                 textView.setBackgroundColor(Color.WHITE);
                 textView.setGravity(Gravity.CENTER);
 
-                String s1 = Integer.toString(i);
-                String s2 = Integer.toString(j);
-                String s3 = s1 + s2;
-                int id = Integer.parseInt(s3);
-                Log.d("TAG", "-___>"+id);
-                if (i ==0 && j==0){
-                    //textView.setText("0==0");
-                } else if(i==0){
-                    Log.d("TAAG", "set Column Headers");
-                    textView.setText(cv[j - 1]);
-                    textView.setBackgroundColor(Color.BLACK);
-                    textView.setTextColor(Color.WHITE);
-                }else if( j==0){
-                    Log.d("TAAG", "Set Row Headers");
-                    //textView.setText(rv[i-1]);
-                }else {
-                    textView.setText(""+id);
-                    // check id=23
-                    if(id==23){
+
                         textView.setText("ID=23");
 
-                    }
-                }
 
                 // 5) add textView to tableRow
                 tableRow.addView(textView, tableRowParams);

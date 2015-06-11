@@ -41,4 +41,6 @@ public class FormsAdapter extends ArrayAdapter<MyForm> {
         // Return the completed view to render on screen
         return convertView;
     }
+
+
 }
