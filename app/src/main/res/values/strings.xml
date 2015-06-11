@@ -8,4 +8,5 @@
     <string name="title_activity_log_in_page">LogInPage</string>
     <string name="title_activity_form_page">TablePage</string>
     <string name="title_activity_entry_page">EntryPage</string>
+    <string name="title_activity_formdetails2">formdetails2</string>
 </resources>

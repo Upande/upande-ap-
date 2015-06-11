@@ -15,6 +15,11 @@ public class MyForm implements Serializable {
     private String title;
     private String description;
     private String formUrl;
+   /* private String name;
+    private String gender;
+    private int age;
+    private String location;
+    private String pizza_type;*/
 
     public String getTitle() {
         return title;
@@ -28,6 +33,23 @@ public class MyForm implements Serializable {
         return formUrl;
     }
 
+  /*  public String getName(){
+        return name;
+    }
+    public String getGender(){
+        return gender;
+    }
+    public int getAge(){
+        return age;
+    }
+    public String getLocation(){
+        return location;
+
+    }
+    public String getPizza_type(){
+        return  pizza_type;
+    }
+*/
 
 
     public static ArrayList<MyForm> fromJson(JSONArray jsonArray) {
@@ -59,6 +81,11 @@ public class MyForm implements Serializable {
             form.title = jsonObject.getString("title");
             form.description = jsonObject.getString("description");
             form.formUrl = jsonObject.getString("url");
+           /* form.name=jsonObject.getString("name");
+            form.gender=jsonObject.getString("gender");
+            form.age=jsonObject.getInt("age");
+            form.location=jsonObject.getString("location");
+            form.pizza_type=jsonObject.getString("pizza_type");*/
 
 
 
