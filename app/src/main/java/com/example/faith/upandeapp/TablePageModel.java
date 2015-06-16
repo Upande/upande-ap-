@@ -16,12 +16,7 @@ public class TablePageModel {
 
     private String question;
     private String answer;
-    /*private String name;
-    private String gender;
-    private int age;
-    private String location;
-    private String pizza_type;
-*/
+
 
     public String getQuestion() {
         return question;
@@ -31,22 +26,7 @@ public class TablePageModel {
         return answer;
     }
 
-  /*  public String getName(){
-        return name;
-    }
-    public String getGender(){
-        return gender;
-    }
-    public int getAge(){
-        return age;
-    }
-    public String getLocation(){
-        return location;
 
-    }
-    public String getPizza_type(){
-        return  pizza_type;
-    }*/
 
     public static ArrayList<TablePageModel> fromJson(JSONArray jsonArray) {
         ArrayList<TablePageModel> formDetails = new ArrayList<TablePageModel>(jsonArray.length());
@@ -80,11 +60,7 @@ public class TablePageModel {
                 //Deserialize json into object fields
                 details.question = jsonObject.getString("_notes");
                 details.answer = jsonObject.getString("_bamboo_dataset_id");
-                /*details.name=jsonObject.getString("name");
-                details.gender=jsonObject.getString("gender");
-                details.age=jsonObject.getInt("age");
-                details.location=jsonObject.getString("location");
-                details.pizza_type=jsonObject.getString("pizza_type");*/
+
 
             } catch (Exception e) {
                 e.printStackTrace();

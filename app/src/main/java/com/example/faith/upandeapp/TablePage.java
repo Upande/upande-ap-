@@ -52,19 +52,7 @@ public class TablePage extends Activity {
 
         // time to test some code
 
-        String[] row = { "ROW1", "ROW2", "Row3", "Row4", "Row 5", "Row 6", "Row 7","ROW1", "ROW2", "Row3", "Row4", "Row 5", "Row 6", "Row 7"  };
-        String[] column = { "COLUMN1", "COLUMN2", "COLUMN3", "COLUMN4",
-                "COLUMN5", "COLUMN6","ROW1", "ROW2", "Row3", "Row4", "Row 5", "Row 6", "Row 7"  };
-        int rl=row.length; int cl=column.length;
 
-
-        ScrollView sv = new ScrollView(this);
-        TableLayout tableLayout = createTableLayout(row, column,rl, cl);
-        HorizontalScrollView hsv = new HorizontalScrollView(this);
-
-        hsv.addView(tableLayout);
-        sv.addView(hsv);
-        setContentView(sv);
 
 
         fetchFormsDetails();
@@ -114,63 +102,6 @@ public class TablePage extends Activity {
 
 
 
-    public void makeCellEmpty(TableLayout tableLayout, int rowIndex, int columnIndex) {
-        // get row from table with rowIndex
-        TableRow tableRow = (TableRow) tableLayout.getChildAt(rowIndex);
 
-        // get cell from row with columnIndex
-        TextView textView = (TextView)tableRow.getChildAt(columnIndex);
-
-        // make it black
-        textView.setBackgroundColor(Color.BLACK);
-    }
-    public void setHeaderTitle(TableLayout tableLayout, int rowIndex, int columnIndex){
-
-        // get row from table with rowIndex
-        TableRow tableRow = (TableRow) tableLayout.getChildAt(rowIndex);
-
-        // get cell from row with columnIndex
-        TextView textView = (TextView)tableRow.getChildAt(columnIndex);
-
-
-    }
-
-    private TableLayout createTableLayout(String [] rv, String [] cv,int rowCount, int columnCount) {
-        // 1) Create a tableLayout and its params
-        TableLayout.LayoutParams tableLayoutParams = new TableLayout.LayoutParams();
-        TableLayout tableLayout = new TableLayout(this);
-        tableLayout.setBackgroundColor(Color.BLACK);
-
-        // 2) create tableRow params
-        TableRow.LayoutParams tableRowParams = new TableRow.LayoutParams();
-        tableRowParams.setMargins(1, 1, 1, 1);
-        tableRowParams.weight = 1;
-
-        for (int i = 0; i < rowCount; i++) {
-            // 3) create tableRow
-            TableRow tableRow = new TableRow(this);
-            tableRow.setBackgroundColor(Color.BLACK);
-
-            for (int j= 0; j < columnCount; j++) {
-                // 4) create textView
-                TextView textView = new TextView(this);
-                //  textView.setText(String.valueOf(j));
-                textView.setBackgroundColor(Color.WHITE);
-                textView.setGravity(Gravity.CENTER);
-
-
-                        textView.setText("ID=23");
-
-
-                // 5) add textView to tableRow
-                tableRow.addView(textView, tableRowParams);
-            }
-
-            // 6) add tableRow to tableLayout
-            tableLayout.addView(tableRow, tableLayoutParams);
-        }
-
-        return tableLayout;
-    }
 }
 

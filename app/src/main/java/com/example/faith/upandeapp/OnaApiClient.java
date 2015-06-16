@@ -55,11 +55,12 @@ public class OnaApiClient extends Activity{
 
 
          String formdetailsurl = getFormUrl(formUrl);
+         String formChartsUrl = formdetailsurl.replaceAll("data","charts");
 
          client.setBasicAuth(username, password);
-         client.get(formdetailsurl, new RequestParams(username, password), handler);
+         client.get(formChartsUrl, new RequestParams(username, password), handler);
 
-         Log.d("STRING",formdetailsurl);
+         Log.d("STRING",formChartsUrl);
 
 
 
