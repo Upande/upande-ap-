@@ -2,7 +2,9 @@ package com.example.faith.upandeapp;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.util.Log;
+import android.webkit.WebView;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -23,6 +25,8 @@ public class OnaApiClient extends Activity{
 
 
     private AsyncHttpClient client;
+
+    WebView webView;
 
 
     public OnaApiClient(String username, String password, String formUrl){
@@ -53,16 +57,14 @@ public class OnaApiClient extends Activity{
      public void getFormDetails(JsonHttpResponseHandler handler){
 
 
-
          String formdetailsurl = getFormUrl(formUrl);
-         String formChartsUrl = formdetailsurl.replaceAll("data","charts");
+         String formChartsUrl = formdetailsurl.replaceAll("data","charts").concat(".html?field_name=pizza_fan");
 
          client.setBasicAuth(username, password);
          client.get(formChartsUrl, new RequestParams(username, password), handler);
 
-         Log.d("STRING",formChartsUrl);
 
-
+         Log.d("STRING", formChartsUrl);
 
     }
 
