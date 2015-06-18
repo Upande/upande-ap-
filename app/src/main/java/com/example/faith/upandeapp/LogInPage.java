@@ -2,6 +2,7 @@ package com.example.faith.upandeapp;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.PorterDuff;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -49,6 +50,7 @@ public class LogInPage extends Activity {
         // Email, Password input text
         txtUsername = (EditText) findViewById(R.id.txtUsername);
         txtPassword = (EditText) findViewById(R.id.txtPassword);
+
 
 
 

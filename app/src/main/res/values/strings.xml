@@ -9,5 +9,7 @@
     <string name="title_activity_form_page">TablePage</string>
     <string name="title_activity_entry_page">EntryPage</string>
     <string name="title_activity_formdetails2">formdetails2</string>
+    <string name="context_menu">context_menu</string>
+
 
 </resources>
