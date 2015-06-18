@@ -66,62 +66,13 @@ public class MainActivity extends ActionBarActivity implements OnItemClickListen
         adapterForms = new FormsAdapter(this, Forms);
         lvForms.setAdapter(adapterForms);
 
-        fetchForms();
-        setupFormSelectedListener();
-
-
-
         initToolbar();
         initMenuFragment();
         fragmentManager = getSupportFragmentManager();
-    }
-    private void initMenuFragment() {
-        MenuParams menuParams = new MenuParams();
-        menuParams.setActionBarSize((int) getResources().getDimension(R.dimen.tool_bar_height));
-        menuParams.setMenuObjects(getMenuObjects());
-        menuParams.setClosableOutside(false);
-        mMenuDialogFragment = ContextMenuDialogFragment.newInstance(menuParams);
-    }
 
-    private List<MenuObject> getMenuObjects() {
-        List<MenuObject> menuObjects = new ArrayList<>();
-        MenuObject close = new MenuObject();
-        close.setResource(R.drawable.close);
-        MenuObject profile = new MenuObject("Profile");
-        profile.setResource(R.drawable.manageaccount);
-        menuObjects.add(close);
-        menuObjects.add(profile);
-        return menuObjects;
-    }
+        fetchForms();
+        setupFormSelectedListener();
 
-    private void initToolbar() {
-        android.support.v7.widget.Toolbar mToolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
-        TextView mToolBarTextView = (TextView) findViewById(R.id.text_view_toolbar_title);
-        setSupportActionBar(mToolbar);
-        getSupportActionBar().setHomeButtonEnabled(true);
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-
-
-        mToolBarTextView.setText("Published Forms");
-    }
-
-
-
-
-    protected void addFragment(android.support.v4.app.Fragment fragment, boolean addToBackStack, int containerId) {
-        invalidateOptionsMenu();
-        String backStackName = fragment.getClass().getName();
-        boolean fragmentPopped = fragmentManager.popBackStackImmediate(backStackName, 0);
-        if (!fragmentPopped) {
-            android.support.v4.app.FragmentTransaction transaction = fragmentManager.beginTransaction();
-            transaction.add(containerId, fragment, backStackName)
-                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-            if (addToBackStack)
-                transaction.addToBackStack(backStackName);
-            transaction.commit();
-        }
     }
 
 
@@ -209,6 +160,7 @@ public class MainActivity extends ActionBarActivity implements OnItemClickListen
                 Intent i = new Intent(MainActivity.this, TablePage.class);
                 i.putExtra(FORM_DETAIL_KEY, adapterForms.getItem(position));
                 i.putExtra("formUrl", adapterForms.getItem(position).getFormUrl());
+                i.putExtra("formTitle", adapterForms.getItem(position).getTitle());
                 i.putExtra("username", username);
                 i.putExtra("password", password);
                 Toast.makeText(getBaseContext(), adapterForms.getItem(position).getTitle(), Toast.LENGTH_LONG).show();
@@ -218,6 +170,56 @@ public class MainActivity extends ActionBarActivity implements OnItemClickListen
     }
 
 
+ // the magic toolbar from that wasabeef guy
+
+    private void initMenuFragment() {
+        MenuParams menuParams = new MenuParams();
+        menuParams.setActionBarSize((int) getResources().getDimension(R.dimen.tool_bar_height));
+        menuParams.setMenuObjects(getMenuObjects());
+        menuParams.setClosableOutside(false);
+        mMenuDialogFragment = ContextMenuDialogFragment.newInstance(menuParams);
+    }
+
+    private List<MenuObject> getMenuObjects() {
+        List<MenuObject> menuObjects = new ArrayList<>();
+        MenuObject close = new MenuObject();
+        close.setResource(R.drawable.close);
+        MenuObject profile = new MenuObject("Profile");
+        profile.setResource(R.drawable.manageaccount);
+        menuObjects.add(close);
+        menuObjects.add(profile);
+        return menuObjects;
+    }
+
+    private void initToolbar() {
+        android.support.v7.widget.Toolbar mToolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
+        TextView mToolBarTextView = (TextView) findViewById(R.id.text_view_toolbar_title);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setHomeButtonEnabled(true);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+
+        mToolBarTextView.setText("Published Forms");
+    }
+
+
+
+
+    protected void addFragment(android.support.v4.app.Fragment fragment, boolean addToBackStack, int containerId) {
+        invalidateOptionsMenu();
+        String backStackName = fragment.getClass().getName();
+        boolean fragmentPopped = fragmentManager.popBackStackImmediate(backStackName, 0);
+        if (!fragmentPopped) {
+            android.support.v4.app.FragmentTransaction transaction = fragmentManager.beginTransaction();
+            transaction.add(containerId, fragment, backStackName)
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+            if (addToBackStack)
+                transaction.addToBackStack(backStackName);
+            transaction.commit();
+        }
+    }
 
 
 
@@ -244,6 +246,8 @@ public class MainActivity extends ActionBarActivity implements OnItemClickListen
     public void onClick(View view) {
 
     }
+
+    //end of that toolbar thing
 }
 
 
