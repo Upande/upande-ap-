@@ -10,6 +10,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.internal.widget.AdapterViewCompat;
 import android.util.Log;
+import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -200,8 +202,12 @@ public class MainActivity extends ActionBarActivity implements OnItemClickListen
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-
+        mToolbar.setNavigationIcon(null);
         mToolBarTextView.setText("Published Forms");
+        mToolBarTextView.setGravity(Gravity.LEFT);
+        mToolBarTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP,18);
+
+
     }
 
 

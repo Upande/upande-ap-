@@ -9,6 +9,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -30,11 +31,20 @@ import com.yalantis.contextmenu.lib.MenuParams;
 import com.yalantis.contextmenu.lib.interfaces.OnItemClickListener;
 
 import org.apache.http.Header;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.BasicResponseHandler;
+import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,7 +63,10 @@ public class TablePage extends ActionBarActivity implements OnItemClickListener 
     public String formUrl;
     public String formTitle;
     WebView webView;
-    String string;
+    public   String webString = "the string";
+
+
+
 
 
     @Override
@@ -71,59 +84,21 @@ public class TablePage extends ActionBarActivity implements OnItemClickListener 
         formUrl=getIntent().getStringExtra("formUrl");
         formTitle=getIntent().getStringExtra("formTitle");
 
-
-
         initToolbar();
         initMenuFragment();
         fragmentManager = getSupportFragmentManager();
 
-
-
         fetchFormsDetails();
-
-        Log.d("STRING", "LETS SEE IF IT WORKS");
 
         webView = (WebView) findViewById(R.id.webView);
         webView.getSettings().setJavaScriptEnabled(true);
-        //webView.setBackgroundColor(Color.BLACK);
-        String test = "<head>\n" +
-                "    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js\" charset=\"utf-8\"></script>\n" +
-                "    <script src='http://dimplejs.org/dist/dimple.v1.1.3.min.js' type='text/javascript'></script>\n" +
-                "    </head>\n" +
-                "    <body>\n" +
-                "<h1>I am here </h1>" +
-                "    <script type=\"text/javascript\">\n" +
-                "    (function(elmSelector){\n" +
-                "    var svg = dimple.newSvg(elmSelector, 590, 400);\n" +
-                "    var data = [\n" +
-                "    { \"Do you like pizza?\": \"Yes\", \"count\": \"2\" },\n" +
-                "    { \"Do you like pizza?\": \"No\", \"count\": \"3\" },\n" +
-                "    ];\n" +
-                "    var chart = new dimple.chart(svg, data);\n" +
-                "    chart.setBounds(60, 30, 510, 305)\n" +
-                "    var categoryAxisLocation =  \"y\" ;\n" +
-                "    var countAxisLocation =  \"x\" ;\n" +
-                "    var categoryAxis = chart.addAxis(categoryAxisLocation, \"Do you like pizza?\", null);\n" +
-                "    var countAxis = chart.addMeasureAxis(countAxisLocation, \"count\");\n" +
-                "    chart.addSeries(null, dimple.plot.bar);\n" +
-                "    chart.draw();\n" +
-                "    countAxis.titleShape.style('font-size', '12px');\n" +
-                "    categoryAxis.titleShape.style('font-size', '12px');\n" +
-                "    })('body');\n" +
-                "    </script>\n" +
-
-                "    </body>";
-
-        Log.d("STRING","SHOW ME STRING");
-       // Log.d("STRING", string);
-        webView.loadUrl("https://ona.io/api/v1/charts/57278.html?field_name=pizza_fan");
-
+        webView.loadDataWithBaseURL("https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js", webString, "text/html", null, null);
 
 
 
     }
 
-     private void fetchFormsDetails() {
+     private void fetchFormsDetails()  {
 
 
 
@@ -131,16 +106,27 @@ public class TablePage extends ActionBarActivity implements OnItemClickListener 
 
         client.getFormDetails(new JsonHttpResponseHandler() {
 
+
+
             // this is for debugging purpose only
             @Override
-            public  Object parseResponse(byte[] responseBody) throws JSONException {
-                 string = null;
+            public Object parseResponse(byte[] responseBody) throws JSONException {
+
+                String result = null;
+
+
                 try {
-                    string = new String(responseBody, "UTF-8");
+                    result = new String(responseBody, "UTF-8");
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
                 }
-                Log.d("STRING", string);
+
+
+                Log.d("STRING", result);
+                webString = result;
+
+                Log.d("STRING", webString);
+
 
 
                 return super.parseResponse(responseBody);
@@ -148,11 +134,9 @@ public class TablePage extends ActionBarActivity implements OnItemClickListener 
 
             }
 
-
-
-
-
         });
+
+
     } // end of fetchformsdetails method
 
 
@@ -185,7 +169,19 @@ public class TablePage extends ActionBarActivity implements OnItemClickListener 
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+        mToolBarTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
 
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getBaseContext(), MainActivity.class);
+
+                i.putExtra("username", username);
+                i.putExtra("password", password);
+                startActivity(i);
+                finish();
+            }
+        });
 
         mToolBarTextView.setText(formTitle);
     }
