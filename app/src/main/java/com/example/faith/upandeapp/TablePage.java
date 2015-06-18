@@ -90,9 +90,35 @@ public class TablePage extends ActionBarActivity implements OnItemClickListener 
 
         fetchFormsDetails();
 
+        String string = "<head>\n" +
+                "    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js\"></script>\n" +
+                "    <script src=\"http://dimplejs.org/dist/dimple.v1.1.3.min.js\"></script>\n" +
+                "    </head>\n" +
+                "    <body>\n" +
+                "    <script type=\"text/javascript\">\n" +
+                "    (function(elmSelector){\n" +
+                "    var svg = dimple.newSvg(elmSelector, 590, 400);\n" +
+                "    var data = [\n" +
+                "    { \"Do you like pizza?\": \"Yes\", \"count\": \"2\" },\n" +
+                "    { \"Do you like pizza?\": \"No\", \"count\": \"3\" },\n" +
+                "    ];\n" +
+                "    var chart = new dimple.chart(svg, data);\n" +
+                "    chart.setBounds(60, 30, 510, 305)\n" +
+                "    var categoryAxisLocation =  \"y\" ;\n" +
+                "    var countAxisLocation =  \"x\" ;\n" +
+                "    var categoryAxis = chart.addAxis(categoryAxisLocation, \"Do you like pizza?\", null);\n" +
+                "    var countAxis = chart.addMeasureAxis(countAxisLocation, \"count\");\n" +
+                "    chart.addSeries(null, dimple.plot.bar);\n" +
+                "    chart.draw();\n" +
+                "    countAxis.titleShape.style('font-size', '12px');\n" +
+                "    categoryAxis.titleShape.style('font-size', '12px');\n" +
+                "    })('body');\n" +
+                "    </script>\n" +
+                "    </body>";
+
         webView = (WebView) findViewById(R.id.webView);
         webView.getSettings().setJavaScriptEnabled(true);
-        webView.loadDataWithBaseURL("https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js", webString, "text/html", null, null);
+        webView.loadDataWithBaseURL(null, string, "text/html", null, null);
 
 
 
